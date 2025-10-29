@@ -1,0 +1,7 @@
+Limpieza de scripts (no se borró ningún archivo)
+
+Uso diario recomendado:
+- iniciar-con-navegador.bat → inicia el proyecto y abre el navegador
+- instalar-dependencias.bat → instala/verifica dependencias
+
+Se archivaron scripts en scripts/legacy/ para mantener orden. No se eliminó nada. Si necesitas alguno, muévelo de vuelta a scripts/.

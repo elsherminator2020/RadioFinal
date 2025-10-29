@@ -1,0 +1,144 @@
+================================================
+  CREAR USUARIO ADMINISTRADOR - RADIO CUENCA
+================================================
+
+¡Hola! Aquí tienes las instrucciones para crear tu cuenta 
+de administrador en Supabase.
+
+================================================
+🚀 OPCIÓN 1: AUTOMÁTICA (RECOMENDADA)
+================================================
+
+1. Ejecuta "crear-admin.bat"
+2. Sigue las instrucciones en pantalla
+3. Necesitarás:
+   • URL de tu proyecto Supabase
+   • Service Role Key de Supabase
+
+📍 Para encontrar tus credenciales de Supabase:
+   • Ve a https://supabase.com
+   • Inicia sesión en tu cuenta
+   • Selecciona tu proyecto de Radio Cuenca
+   • Ve a Settings > API
+   • Copia la "URL" y la "Service Role Key"
+
+================================================
+🔧 OPCIÓN 2: MANUAL
+================================================
+
+Si el script automático no funciona, puedes crear 
+el usuario manualmente:
+
+1. ACCEDER A SUPABASE:
+   • Ve a https://supabase.com
+   • Inicia sesión en tu cuenta
+   • Selecciona tu proyecto
+
+2. CREAR USUARIO:
+   • En el panel lateral, clic en "Authentication"
+   • Clic en "Users"
+   • Clic en "Add user" (botón verde)
+
+3. DATOS DEL ADMINISTRADOR:
+   • Email: admin@radiocuenca.com
+   • Password: RadioCuenca2024!
+   • Confirm password: RadioCuenca2024!
+   • Marca "Confirm email" ✓
+
+4. CREAR CUENTA:
+   • Clic en "Create user"
+   • Verifica que aparezca en la lista
+
+================================================
+🌐 CREDENCIALES SUGERIDAS
+================================================
+
+📧 Email: admin@radiocuenca.com
+🔒 Contraseña: RadioCuenca2024!
+
+(Puedes cambiar estos datos si prefieres otros)
+
+================================================
+🔐 ACCEDER AL SISTEMA
+================================================
+
+Una vez creado el usuario administrador:
+
+1. Inicia tu aplicación:
+   • Ejecuta "iniciar.bat"
+   • O ejecuta: npm run dev
+
+2. Ve al login:
+   • Abre: http://localhost:5173/login
+
+3. Ingresa credenciales:
+   • Email: admin@radiocuenca.com
+   • Contraseña: RadioCuenca2024!
+
+4. ¡Listo!
+   • Serás redirigido al panel de administración
+   • URL: http://localhost:5173/admin
+
+================================================
+⚠️  SOLUCIÓN DE PROBLEMAS
+================================================
+
+PROBLEMA: "Error de conexión a Supabase"
+SOLUCIÓN: 
+• Verifica tus variables de entorno
+• Asegúrate de que el proyecto esté activo
+• Revisa la URL y las keys en Supabase
+
+PROBLEMA: "Credenciales inválidas"
+SOLUCIÓN:
+• Verifica que el usuario se creó correctamente
+• Revisa que el email y contraseña sean exactos
+• Asegúrate de que el email esté confirmado
+
+PROBLEMA: "No se puede crear usuario"
+SOLUCIÓN:
+• Usa la Service Role Key, no la anon key
+• Verifica permisos en Supabase
+• Revisa que el proyecto tenga auth habilitado
+
+================================================
+🔒 SEGURIDAD IMPORTANTE
+================================================
+
+✅ DESPUÉS DEL PRIMER LOGIN:
+• Cambia la contraseña por una más segura
+• Considera habilitar 2FA en Supabase
+• No compartas las credenciales
+
+✅ PARA PRODUCCIÓN:
+• Usa variables de entorno seguras
+• Configura políticas RLS en Supabase
+• Habilita auditoría de usuarios
+
+================================================
+📞 SOPORTE
+================================================
+
+Si tienes problemas:
+1. Revisa esta guía paso a paso
+2. Verifica los logs en la consola
+3. Revisa la configuración de Supabase
+4. Asegúrate de tener las dependencias instaladas
+
+¡Radio Cuenca Cañera 94.5FM está listo para usar!
+
+================================================
+💡 PRÓXIMOS PASOS
+================================================
+
+Una vez que tengas acceso de administrador:
+
+1. 📰 Crear tu primera noticia
+2. 📻 Configurar programación de radio
+3. 📢 Gestionar publicidades
+4. 🎨 Personalizar la información
+5. 📱 Probar en diferentes dispositivos
+6. 🚀 ¡Publicar tu sitio web!
+
+¡Éxito con tu proyecto de Radio Cuenca!
+================================================ 
