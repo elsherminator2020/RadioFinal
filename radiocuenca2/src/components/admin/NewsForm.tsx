@@ -7,10 +7,6 @@ import {
   Paper,
   Grid,
   Divider,
-  FormControl,
-  InputLabel,
-  OutlinedInput,
-  FormHelperText,
   Alert,
   CircularProgress,
   IconButton,
@@ -565,7 +561,7 @@ const NewsForm: React.FC<NewsFormProps> = ({ initialData, isEdit = false }) => {
                 color="primary"
                 disabled={loading || isSubmitting}
                 startIcon={(loading || isSubmitting) && <CircularProgress size={20} color="inherit" />}
-                onClick={(e) => {
+                onClick={() => {
                   console.log('🖱️ Botón Publicar clickeado');
                   console.log('🔄 Loading state:', loading);
                   console.log('📝 isSubmitting:', isSubmitting);

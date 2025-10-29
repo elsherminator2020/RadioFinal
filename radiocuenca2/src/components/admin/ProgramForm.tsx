@@ -24,13 +24,7 @@ import {
   Stack,
   Chip,
   Slider,
-  FormGroup,
-  Checkbox,
-  Autocomplete,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon
+  Autocomplete
 } from '@mui/material';
 import { 
   Save, 
@@ -189,12 +183,11 @@ const ProgramForm: React.FC<ProgramFormProps> = ({ initialData, isEdit = false }
         image_url: imageUrl || undefined,
       };
 
-      let result: Program;
       if (isEdit && initialData?.id) {
-        result = await updateProgram(initialData.id, programData);
+        await updateProgram(initialData.id, programData);
         setSuccess('Programa actualizado exitosamente');
       } else {
-        result = await createProgram(programData);
+        await createProgram(programData);
         setSuccess('Programa creado exitosamente');
       }
 

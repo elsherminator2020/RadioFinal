@@ -3,11 +3,9 @@ import {
   Box,
   Container,
   Typography,
-  Paper,
   Grid,
   Button,
   useTheme,
-  useMediaQuery,
   Divider,
   Card,
   CardContent,
@@ -27,7 +25,6 @@ import {
 const ContactSection: React.FC = () => {
   const theme = useTheme();
   const isDark = theme.palette.mode === 'dark';
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box 
