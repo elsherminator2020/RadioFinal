@@ -153,7 +153,6 @@ const DashboardPage: React.FC = () => {
   const [deleteError, setDeleteError] = useState<string | null>(null);
   const [deleteSuccess, setDeleteSuccess] = useState<string | null>(null);
   const [storageStatus, setStorageStatus] = useState<any>(null);
-  const [settingUpStorage, setSettingUpStorage] = useState(false);
   const [speedDialOpen, setSpeedDialOpen] = useState(false);
 
   // Efecto para redirigir si no hay usuario autenticado

@@ -8,7 +8,7 @@ const PROGRAMMING_BUCKET_NAME = 'images';
 
 export async function checkProgrammingBucket(): Promise<StorageStatus> {
   // Verificar existencia intentando listar contenidos (no requiere clave de servicio)
-  const { data, error } = await supabase.storage.from(PROGRAMMING_BUCKET_NAME).list('programs', { limit: 1 });
+  const { error } = await supabase.storage.from(PROGRAMMING_BUCKET_NAME).list('programs', { limit: 1 });
   if (!error) {
     return { bucketExists: true };
   }

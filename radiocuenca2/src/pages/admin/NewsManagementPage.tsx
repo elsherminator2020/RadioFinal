@@ -4,9 +4,6 @@ import {
   Typography, 
   Container,
   Grid,
-  Card,
-  CardContent,
-  CardMedia,
   Button,
   IconButton,
   Dialog,
@@ -21,7 +18,6 @@ import {
   Chip,
   Stack,
   Paper,
-  Divider,
   FormControl,
   InputLabel,
   Select,
@@ -60,11 +56,11 @@ import { es } from 'date-fns/locale';
 import type { News } from '../../services/newsService';
 
 // Función para extraer ID de video de YouTube
-const getYouTubeVideoId = (url: string): string | null => {
-  const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-  const match = url.match(regex);
-  return match ? match[1] : null;
-};
+// const getYouTubeVideoId = (url: string): string | null => {
+//   const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+//   const match = url.match(regex);
+//   return match ? match[1] : null;
+// };
 
 type FilterType = 'all' | 'with-image' | 'with-video' | 'text-only' | 'this-week' | 'this-month';
 type ViewType = 'grid' | 'list';

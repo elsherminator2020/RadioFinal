@@ -256,7 +256,7 @@ export const uploadProgramImage = async (file: File, path: string) => {
     }
 
     // Intentar subir directamente primero
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('images')
       .upload(`programs/${path}`, file);
 
@@ -301,7 +301,7 @@ export const uploadProgramImage = async (file: File, path: string) => {
 export const uploadProgramImageFallback = async (file: File, path: string) => {
   try {
     // Intentar subir a un bucket general o público
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('uploads') // Bucket genérico que podría existir
       .upload(`programming/${path}`, file);
 

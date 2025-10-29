@@ -255,7 +255,7 @@ export const uploadAdvertisementImage = async (file: File, path: string) => {
     }
 
     // Intentar subir directamente primero
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('images')
       .upload(`advertisements/${path}`, file);
 
@@ -312,9 +312,22 @@ export const deleteAdvertisementImage = async (path: string) => {
 
 // Registrar un clic en una publicidad
 export const recordAdvertisementClick = async (id: number) => {
+  // Primero obtener el valor actual
+  const { data: currentAd, error: fetchError } = await supabase
+    .from('advertisements')
+    .select('click_count')
+    .eq('id', id)
+    .single();
+
+  if (fetchError) {
+    console.error(`Error fetching advertisement ${id}:`, fetchError);
+    throw fetchError;
+  }
+
+  // Incrementar el contador
   const { data, error } = await supabase
     .from('advertisements')
-    .update({ click_count: supabase.raw('click_count + 1') })
+    .update({ click_count: (currentAd.click_count || 0) + 1 })
     .eq('id', id)
     .select();
 
@@ -328,9 +341,22 @@ export const recordAdvertisementClick = async (id: number) => {
 
 // Registrar una impresión de una publicidad
 export const recordAdvertisementImpression = async (id: number) => {
+  // Primero obtener el valor actual
+  const { data: currentAd, error: fetchError } = await supabase
+    .from('advertisements')
+    .select('impression_count')
+    .eq('id', id)
+    .single();
+
+  if (fetchError) {
+    console.error(`Error fetching advertisement ${id}:`, fetchError);
+    throw fetchError;
+  }
+
+  // Incrementar el contador
   const { data, error } = await supabase
     .from('advertisements')
-    .update({ impression_count: supabase.raw('impression_count + 1') })
+    .update({ impression_count: (currentAd.impression_count || 0) + 1 })
     .eq('id', id)
     .select();
 

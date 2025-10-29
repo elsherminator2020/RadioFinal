@@ -209,7 +209,7 @@ export const deleteNews = async (id: number) => {
 
 // Subir una imagen para una noticia
 export const uploadNewsImage = async (file: File, path: string) => {
-  const { data, error } = await supabase.storage
+  const { error } = await supabase.storage
     .from('images')
     .upload(`noticias/${path}`, file);
 
