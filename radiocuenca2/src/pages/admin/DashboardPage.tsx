@@ -1161,10 +1161,9 @@ const DashboardPage: React.FC = () => {
                             variant="outlined"
                             size="small"
                             onClick={handleSetupStorage}
-                            disabled={settingUpStorage}
-                            startIcon={settingUpStorage ? <CircularProgress size={16} /> : <CloudUpload />}
+                            startIcon={<CloudUpload />}
                           >
-                            {settingUpStorage ? 'Intentando...' : 'Configurar automáticamente'}
+                            Configurar almacenamiento
                           </Button>
                           <Button
                             variant="text"
