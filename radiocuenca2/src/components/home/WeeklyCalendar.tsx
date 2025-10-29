@@ -19,7 +19,6 @@ import { useTheme } from '@mui/material/styles';
 import {
   ChevronLeft,
   ChevronRight,
-  Today,
   MusicNote,
   Newspaper,
   Mic,
@@ -158,7 +157,7 @@ const WeeklyCalendar: React.FC<WeeklyCalendarProps> = ({
   };
 
   // Renderizar celda de programa
-  const renderProgramCell = (program: Program | null, hour: number, dayKey: string) => {
+  const renderProgramCell = (program: Program | null, hour: number) => {
     if (!program) {
       return (
         <Box
@@ -327,7 +326,7 @@ const WeeklyCalendar: React.FC<WeeklyCalendarProps> = ({
               
               {daysOfWeek.map(day => (
                 <Grid item xs key={`${timeSlot.hour}-${day.key}`} sx={{ minWidth: 120 }}>
-                  {renderProgramCell(timeSlot.programs[day.key], timeSlot.hour, day.key)}
+                  {renderProgramCell(timeSlot.programs[day.key], timeSlot.hour)}
                 </Grid>
               ))}
             </React.Fragment>

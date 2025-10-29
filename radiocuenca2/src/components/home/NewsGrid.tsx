@@ -5,9 +5,7 @@ import {
   Box, 
   useTheme,
   Skeleton,
-  Alert,
-  Container,
-  useMediaQuery
+  Alert
 } from '@mui/material';
 import NewsCard from './NewsCard';
 import type { News } from '../../services/newsService';
@@ -29,7 +27,6 @@ const NewsGrid: React.FC<NewsGridProps> = ({
 }) => {
   const theme = useTheme();
   const isDark = theme.palette.mode === 'dark';
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   // Loading skeleton
   const renderSkeletons = () => {

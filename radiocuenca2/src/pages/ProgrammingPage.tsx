@@ -37,10 +37,6 @@ import {
   Person,
   Headset,
   RadioButtonChecked,
-  PlayArrow,
-  Pause,
-  SkipNext,
-  Today,
   ViewWeek,
   Event,
   CalendarToday
@@ -48,8 +44,7 @@ import {
 import { 
   getProgramming, 
   getCurrentProgram, 
-  getNextProgram,
-  getProgrammingByDay 
+  getNextProgram
 } from '../services/programmingService';
 import type { Program } from '../services/programmingService';
 import WeeklyCalendar from '../components/home/WeeklyCalendar';
@@ -103,7 +98,6 @@ const ProgrammingPage: React.FC = () => {
     progressPercentage: 0
   });
   const [tabValue, setTabValue] = useState(0);
-  const [selectedDay, setSelectedDay] = useState('lunes-viernes');
 
   // Días de la semana para las pestañas
   const dayTabs = [
@@ -561,13 +555,12 @@ const ProgrammingPage: React.FC = () => {
           variant={isMobile ? "scrollable" : "fullWidth"}
           scrollButtons="auto"
         >
-          {dayTabs.map((day, index) => (
+          {dayTabs.map((day) => (
             <Tab 
               key={day.value}
               label={day.label}
               icon={day.icon}
               iconPosition="start"
-              onClick={() => setSelectedDay(day.value)}
             />
           ))}
         </Tabs>

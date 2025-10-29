@@ -5,17 +5,12 @@ import {
   Typography, 
   Slider, 
   useTheme,
-  useMediaQuery,
   CircularProgress,
   Alert,
   Snackbar,
   Chip,
-  Stack,
   LinearProgress,
-  Tooltip,
-  Fade,
-  Slide,
-  Collapse
+  Tooltip
 } from '@mui/material';
 import { 
   PlayArrow, 
@@ -26,9 +21,7 @@ import {
   GraphicEq,
   Wifi as SignalIcon,
   Refresh,
-  ErrorOutline,
-  ExpandLess,
-  ExpandMore
+  ErrorOutline
 } from '@mui/icons-material';
 
 // URLs del stream de radio con diferentes rutas posibles
@@ -64,9 +57,7 @@ const RadioPlayer: React.FC<RadioPlayerProps> = ({ isMinimized = false }) => {
   const [retryCount, setRetryCount] = useState<number>(0);
   const [audioData, setAudioData] = useState<Uint8Array>(new Uint8Array(32));
   
-  // Estados para el diseño minimalista (mantenidos para compatibilidad interna)
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  // Estados para el diseño minimalista (comentados - no se usan actualmente)
   
   // Referencias
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -77,7 +68,6 @@ const RadioPlayer: React.FC<RadioPlayerProps> = ({ isMinimized = false }) => {
   
   const theme = useTheme();
   const isDark = theme.palette.mode === 'dark';
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   // Función para limpiar recursos
   const cleanup = useCallback(() => {
@@ -166,27 +156,27 @@ const RadioPlayer: React.FC<RadioPlayerProps> = ({ isMinimized = false }) => {
     }
   }, [isPlaying]);
 
-  // Función para inicializar visualizador
-  const initializeVisualizer = useCallback(() => {
-    if (!audioRef.current || audioContextRef.current) return;
+  // Función para inicializar visualizador (comentada - no se usa actualmente)
+  // const initializeVisualizer = useCallback(() => {
+  //   if (!audioRef.current || audioContextRef.current) return;
 
-    try {
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-      const source = audioContext.createMediaElementSource(audioRef.current);
-      const analyser = audioContext.createAnalyser();
-      
-      analyser.fftSize = 64;
-      source.connect(analyser);
-      analyser.connect(audioContext.destination);
-      
-      audioContextRef.current = audioContext;
-      analyserRef.current = analyser;
-      
-      updateAudioData();
-    } catch (e) {
-      console.warn('⚠️ No se pudo inicializar el visualizador de audio:', e);
-    }
-  }, [updateAudioData]);
+  //   try {
+  //     const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+  //     const source = audioContext.createMediaElementSource(audioRef.current);
+  //     const analyser = audioContext.createAnalyser();
+  //     
+  //     analyser.fftSize = 64;
+  //     source.connect(analyser);
+  //     analyser.connect(audioContext.destination);
+  //     
+  //     audioContextRef.current = audioContext;
+  //     analyserRef.current = analyser;
+  //     
+  //     updateAudioData();
+  //   } catch (e) {
+  //     console.warn('⚠️ No se pudo inicializar el visualizador de audio:', e);
+  //   }
+  // }, [updateAudioData]);
 
   // Función para crear elemento de audio
   const createAudioElement = useCallback(() => {
@@ -262,7 +252,7 @@ const RadioPlayer: React.FC<RadioPlayerProps> = ({ isMinimized = false }) => {
       setConnectionStatus('Pausado');
     });
 
-    audio.addEventListener('error', (e) => {
+    audio.addEventListener('error', () => {
       const error = audio.error;
       const currentUrl = RADIO_URLS[currentUrlIndex];
       const errorMessage = getAudioErrorMessage(error);
@@ -344,7 +334,7 @@ const RadioPlayer: React.FC<RadioPlayerProps> = ({ isMinimized = false }) => {
     }
   }, [isPlaying, playStream, showErrorMessage]);
 
-  const handleVolumeChange = useCallback((event: Event, newValue: number | number[]) => {
+  const handleVolumeChange = useCallback((_event: Event, newValue: number | number[]) => {
     const volume = Array.isArray(newValue) ? newValue[0] : newValue;
     setVolume(volume);
     

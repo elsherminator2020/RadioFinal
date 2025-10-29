@@ -40,13 +40,8 @@ import {
   Delete,
   Preview,
   Close,
-  Warning,
-  Info,
-  CheckCircle,
-  Error as ErrorIcon,
   ExpandMore,
-  ExpandLess,
-  Help
+  ExpandLess
 } from '@mui/icons-material';
 import { useForm, Controller } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -206,12 +201,11 @@ const ProgrammingForm: React.FC<ProgrammingFormProps> = ({ initialData, isEdit =
         image_url: imageUrl || undefined,
       };
 
-      let result: Program;
       if (isEdit && initialData?.id) {
-        result = await updateProgram(initialData.id, programData);
+        await updateProgram(initialData.id, programData);
         setSuccess('Programa actualizado exitosamente');
       } else {
-        result = await createProgram(programData);
+        await createProgram(programData);
         setSuccess('Programa creado exitosamente');
       }
 
